@@ -1,4 +1,5 @@
 from random import randint
+import datetime
 
 """Classes for melon orders."""
 
@@ -17,6 +18,14 @@ class AbstractMelonOrder():
 
     def get_base_price(self):
         splurge_price = randint(5, 9)
+
+        #This section is a work in progress
+
+        day_of_week = datetime.date.weekday()
+        time_of_day = datetime.datetime.hour()
+
+        if day_of_week < 5 and (time_of_day >= 8 or time_of_day <= 11):
+            splurge_price += 4
 
         return splurge_price
 
